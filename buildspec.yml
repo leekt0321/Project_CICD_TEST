@@ -10,12 +10,14 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn -s unicorn-web-project/settings.xml compile
+      - mvn -s settings.xml compile
   post_build:
     commands:
       - echo Build completed on `date`
-      - mvn -s unicorn-web-project/settings.xml package
+      - mvn -s settings.xml package
 artifacts:
   files:
     - target/unicorn-web-project.war
+    - appspec.yml
+    - scripts/**/*
   discard-paths: no
